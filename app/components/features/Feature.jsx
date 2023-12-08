@@ -56,7 +56,7 @@ const Features = () => {
           return (
             <div className=" relative" key={i}>
               <div className=" z-50 absolute top-0 left-0  w-[130px] h-[130px]">
-                <img src="/pills.png" width={100} height={100} />
+                <img src="/pill.png" width={100} height={100} />
               </div>
               <div className=" min-h-[300px] relative  rounded-xl bg-[#E1F4FF] p-6  flex flex-col items-center justify-center gap-3">
                 <div className=" w-[50px] h-[50px] center rounded-lg bg-[#D4EAF6]">
