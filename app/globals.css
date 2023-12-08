@@ -26,7 +26,7 @@ body {
 }
 
 .pageHeight {
-  height: calc(100vh - 64px);
+  min-height: calc(100vh - 64px);
 }
 
 .center {
@@ -41,10 +41,20 @@ body {
 }
 .bannerText {
   font-family: gorditaBold;
-  font-size: 48px;
+  font-size: 28px;
   font-weight: 800;
-  line-height: 64px;
+  line-height: 44px;
   letter-spacing: 0.2px;
+}
+
+@media screen and (max-width: 850px) {
+  .bannerText {
+    font-family: gorditaBold;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 35px;
+    letter-spacing: 0.2px;
+  }
 }
 
 .headerText {
@@ -54,10 +64,24 @@ body {
   line-height: 24px;
   letter-spacing: 0.2px;
 }
+.headerText2 {
+  font-family: gorditaBold;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 24px;
+  letter-spacing: 0.2px;
+}
 
 .headerInfo {
   font-family: gorditaBold;
   font-size: 14px;
+  font-weight: 500;
+  line-height: 30px;
+  letter-spacing: 0.1px;
+}
+.headerInfo2 {
+  font-family: gorditaBold;
+  font-size: 18px;
   font-weight: 500;
   line-height: 30px;
   letter-spacing: 0.1px;

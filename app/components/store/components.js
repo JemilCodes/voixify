@@ -4,6 +4,7 @@ const initialState = {
   homeRef: null,
   featuresRef: null,
   pricingRef: null,
+  footerRef: null,
 };
 
 export const componentsStore = create((set) => ({
@@ -16,5 +17,8 @@ export const componentsStore = create((set) => ({
   },
   setPricingRef: (payload) => {
     set({ pricingRef: payload });
+  },
+  setFooterRef: (payload) => {
+    set({ footerRef: payload });
   },
 }));
