@@ -33,12 +33,24 @@ const HomePage = () => {
               placeholder="Enter your email address"
             />
           </div>
-          <button className="w-[200px] h-11 headerInfo text-bg center bg-accent rounded-3xl outline-none border-none">
+          <button
+            style={{
+              boxShadow:
+                "inset -4px -4px 10px #28e500, inset 4px 4px 10px 1px #28e500",
+            }}
+            className="w-[200px] h-11 headerInfo text-bg center bg-accent rounded-3xl outline-none border-none"
+          >
             Submit
           </button>
         </div>
         <div className=" relative w-[400px] h-[400px] max1040:w-[350px] max1040:h-[350px] flex items-center justify-center">
-          <div className=" w-full h-full rounded-full bg-accent"></div>
+          <div
+            style={{
+              boxShadow:
+                "inset -4px -4px 10px #28e500, inset 4px 4px 10px 1px #28e500",
+            }}
+            className=" w-full h-full rounded-full bg-accent"
+          ></div>
           <img
             className="absolute"
             src={"/laptop1.png"}

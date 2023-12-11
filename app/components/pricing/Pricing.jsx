@@ -62,7 +62,7 @@ const Pricing = () => {
           />
         </div>
         {toggleCurr && (
-          <div className=" absolute top-[135px] p-2 pl-4 pr-4 mb-20 rounded-2xl flex items-center gap-7 justify-between bg-const shadow-inner">
+          <div className=" z-50 absolute top-[135px] p-2 pl-4 pr-4 mb-20 rounded-2xl flex items-center gap-7 justify-between bg-const shadow-inner">
             <FaDollarSign
               onClick={() => handleCurr("dollar")}
               className="  headerText text-text hover:text-white cursor-pointer "
@@ -77,6 +77,11 @@ const Pricing = () => {
             />
           </div>
         )}
+
+        <div className=" p-2 mb-10 rounded-2xl flex items-center gap-7 justify-between bg-const shadow-inner">
+          <div className=" rounded-xl bg-bg p-2 text-sm">Monthly</div>
+          <div className=" text-sm">Yearly</div>
+        </div>
 
         <div className=" max600:w-[90%] grid grid-cols-3 gap-7 max1200:grid-cols-2 max600:grid-cols-1">
           {[{}, {}, {}].map(({}, i) => {

@@ -33,23 +33,11 @@ const Features = () => {
                 key={i}
                 className={` rounded-xl w-full h-full  bg-bg p-5 max1200:p-10 max600:p-5 flex flex-col items-center justify-center max600:gap-4 gap-6 priceShadow`}
               >
-                <p className=" headerInfo">Basic Plan</p>
+                <p className=" headerInfo">Top ratings</p>
 
                 <p className=" text-center text-text text-base">
                   paragraph pricing-description
                 </p>
-
-                <div
-                  style={{
-                    fontFamily: "gorditaBold",
-                    fontSize: "12px",
-                    background: "#31A0FE",
-                    cursor: "pointer",
-                  }}
-                  className=" rounded-xl text-bg h-10 flex items-center justify-center w-full"
-                >
-                  Continue to Membership
-                </div>
               </div>
             );
           })}
