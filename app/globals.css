@@ -13,8 +13,10 @@
 
 :root {
   --accent-color: #005d72;
+  --accent-color2: #28e500;
   --text-color: #737373;
   --bg-color: white;
+  --const: #e4e6eb;
 }
 
 * {
@@ -99,4 +101,20 @@ body {
   font-weight: 500;
   line-height: 24px;
   letter-spacing: 0.1px;
+}
+
+@keyframes glowing {
+  0% {
+    box-shadow: 0 0 5px #005d72;
+  }
+  50% {
+    box-shadow: 0 0 20px #005d72, 0 0 30px #005d72;
+  }
+  100% {
+    box-shadow: 0 0 5px #005d72;
+  }
+}
+
+.glowing-element {
+  animation: glowing 1.5s infinite;
 }

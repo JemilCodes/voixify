@@ -12,7 +12,7 @@ const Navbar = () => {
       {/* logo */}
       <div className=" flex gap-2 items-center">
         <img src={"/logo.png"} width={50} height={50} />
-        <p className=" text-accent headerText">Voixify</p>
+        <p className=" text-accent2 headerText">VOIXIFY</p>
       </div>
       {/* links */}
       <div className=" max768:hidden flex items-center gap-4">

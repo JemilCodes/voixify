@@ -25,13 +25,15 @@ const HomePage = () => {
             Google, Facebook, Bookings.com, Airbnb, and so on.
           </p>
           <p className="headerInfo2 text-text w-[357px]">
-            Submit your mail to get started with voixify
+            Fill in your mail to get started with voixify
           </p>
-          <input
-            className=" w-[350px] h-11 border-2 rounded-2xl outline-none p-3"
-            placeholder="Enter your email address"
-          />
-          <button className="w-[200px] h-11 bodyText text-bg center bg-accent rounded-3xl outline-none border-none">
+          <div className=" bg-const w-[350px] h-12 rounded-2xl shadow-inner">
+            <input
+              className=" w-full h-11 bg-transparent bodyInfo text-text placeholder:text-text rounded-2xl outline-none p-3"
+              placeholder="Enter your email address"
+            />
+          </div>
+          <button className="w-[200px] h-11 headerInfo text-bg center bg-accent rounded-3xl outline-none border-none">
             Submit
           </button>
         </div>

@@ -2,18 +2,35 @@
 
 import "./style.css";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { componentsStore } from "../store/components";
 
 import { TiTick } from "react-icons/ti";
-
-import Slider from "../slider/Slider";
+import { IoIosArrowDown } from "react-icons/io";
+import { TbCurrencyNaira } from "react-icons/tb";
+import { PiCurrencyGbpBold } from "react-icons/pi";
+import { FaDollarSign } from "react-icons/fa6";
 
 const Pricing = () => {
   const pricingRef = useRef();
 
   const { setPricingRef } = componentsStore();
+
+  const [toggleCurr, setToggleCurr] = useState(false);
+  const [curr, setCurr] = useState("dollar");
+
+  const CurrIcon =
+    curr === "dollar"
+      ? FaDollarSign
+      : curr === "naira"
+      ? TbCurrencyNaira
+      : PiCurrencyGbpBold;
+
+  const handleCurr = (payload) => {
+    setCurr(payload);
+    setToggleCurr((prev) => !prev);
+  };
 
   useEffect(() => {
     setPricingRef(pricingRef);
@@ -23,33 +40,75 @@ const Pricing = () => {
     <>
       <div
         ref={pricingRef}
-        className=" hidden  mb-36 w-full max1200:flex flex-col items-center justify-center"
+        className=" relative  mb-36 w-full flex flex-col items-center justify-center"
       >
         <p className=" headerText mb-5 text-accent">Pricing</p>
-        <p className="bodyInfo w-2/3 text-text mb-20 text-center">
-          Embrace life's vastness, venture forth, and discover the wonders
-          waiting beyond. The world beckons; seize its grand offerings now!
+        <p className="headerInfo w-2/3 text-text mb-2 text-center">
+          Choose your choice of currency
         </p>
-        <Slider
-          showThumbs={false}
-          className=" w-[100%] max1200:w-[60%] max768:w-[75%] max600:w-[95%] priceSelect   priceShadow rounded-xl"
-        >
+
+        <div className=" p-2 pl-4 pr-4 mb-20 rounded-2xl flex items-center gap-7 justify-between bg-const shadow-inner">
+          <p className="headerText text-text ">
+            <CurrIcon
+              style={{
+                width: curr === "naira" ? "32px" : "",
+                height: curr === "naira" ? "32px" : "",
+              }}
+            />
+          </p>
+          <IoIosArrowDown
+            onClick={() => setToggleCurr((prev) => !prev)}
+            className="headerInfo text-text cursor-pointer"
+          />
+        </div>
+        {toggleCurr && (
+          <div className=" absolute top-[135px] p-2 pl-4 pr-4 mb-20 rounded-2xl flex items-center gap-7 justify-between bg-const shadow-inner">
+            <FaDollarSign
+              onClick={() => handleCurr("dollar")}
+              className="  headerText text-text hover:text-white cursor-pointer "
+            />
+            <TbCurrencyNaira
+              onClick={() => handleCurr("naira")}
+              className=" !w-8 !h-8 headerText text-text hover:text-white cursor-pointer"
+            />
+            <PiCurrencyGbpBold
+              onClick={() => handleCurr("gbp")}
+              className=" !w-7 !h-7 headerText text-text hover:text-white cursor-pointer"
+            />
+          </div>
+        )}
+
+        <div className=" max600:w-[90%] grid grid-cols-3 gap-7 max1200:grid-cols-2 max600:grid-cols-1">
           {[{}, {}, {}].map(({}, i) => {
             return (
               <div
                 key={i}
-                className={` rounded-xl w-full h-full  bg-text p-10 flex flex-col items-center justify-center gap-6 priceSelect`}
+                className={` ${
+                  i === 0
+                    ? " max1200:col-span-1 max600:col-auto"
+                    : i === 1
+                    ? " max1200:col-span-1 max600:col-auto glowing-element"
+                    : "  max1200:col-span-2 flex justify-center max600:col-auto"
+                } rounded-xl w-full h-full  bg-bg p-10 max600:p-5 flex flex-col items-center justify-center max600:gap-4 gap-6 priceShadow`}
               >
                 <p className=" headerInfo">Basic Plan</p>
                 <div className=" text-sm text-center flex justify-center items-center gap-2">
-                  <p className="headerText">20$</p>
+                  <div className=" flex items-center headerText text-text ">
+                    <p>20</p>
+                    <CurrIcon
+                      style={{
+                        width: curr === "naira" ? "32px" : "",
+                        height: curr === "naira" ? "32px" : "",
+                      }}
+                    />
+                  </div>
                   <p>/</p>
                   <p className=" text-text font-bold text-sm">Month</p>
                 </div>
                 <p className=" text-center text-text text-base">
                   paragraph pricing-description
                 </p>
-                <div className=" flex flex-col gap-6">
+                <div className=" flex flex-col gap-6 max600:gap-4">
                   {[{}, {}, {}, {}].map(({}, i) => {
                     return (
                       <div key={i} className=" flex items-center gap-2">
@@ -65,68 +124,10 @@ const Pricing = () => {
                   style={{
                     fontFamily: "gorditaBold",
                     fontSize: "12px",
-                    background:
-                      i === 0 ? "#23856D" : i === 1 ? "#31A0FE" : "#EC5C2E",
+                    background: "#31A0FE",
+                    cursor: "pointer",
                   }}
                   className=" rounded-xl text-bg h-10 flex items-center justify-center w-full"
-                >
-                  Continue to Membership
-                </div>
-              </div>
-            );
-          })}
-        </Slider>
-      </div>
-
-      {/* ///////////////////// */}
-
-      <div
-        ref={pricingRef}
-        className=" max1200:hidden mb-36 w-full flex flex-col items-center justify-center"
-      >
-        <p className=" headerText mb-5 text-accent">Pricing</p>
-        <p className="bodyInfo w-2/3 text-text mb-20 text-center">
-          Embrace life's vastness, venture forth, and discover the wonders
-          waiting beyond. The world beckons; seize its grand offerings now!
-        </p>
-        <div className=" w-full gap-14 grid grid-cols-3 max1040:grid-cols-2 max600:grid-cols-1 ">
-          {[{}, {}, {}].map(({}, i) => {
-            return (
-              <div
-                key={i}
-                className={` priceShadow rounded-xl p-10 flex flex-col items-center justify-center gap-6 ${
-                  i === 1 ? "priceSelect" : ""
-                }`}
-              >
-                <p className=" headerInfo">Basic Plan</p>
-                <div className=" text-sm text-center flex justify-center items-center gap-2">
-                  <p className="headerText">20$</p>
-                  <p>/</p>
-                  <p className=" text-text font-bold text-sm">Month</p>
-                </div>
-                <p className=" text-center text-text text-base">
-                  paragraph pricing-description
-                </p>
-                <div className=" flex flex-col gap-6">
-                  {[{}, {}, {}, {}].map(({}, i) => {
-                    return (
-                      <div key={i} className=" flex items-center gap-2">
-                        <TiTick className=" text-green-400 " />
-                        <p className="text-sm font-extrabold">
-                          Unlimited product updates
-                        </p>
-                      </div>
-                    );
-                  })}
-                </div>
-                <div
-                  style={{
-                    fontFamily: "gorditaBold",
-                    fontSize: "12px",
-                    background:
-                      i === 0 ? "#23856D" : i === 1 ? "#31A0FE" : "#EC5C2E",
-                  }}
-                  className=" rounded-xl text-bg bg-accent h-10 flex items-center justify-center w-full"
                 >
                   Continue to Membership
                 </div>

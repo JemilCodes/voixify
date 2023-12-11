@@ -7,6 +7,9 @@ import { useEffect, useRef } from "react";
 import { componentsStore } from "../store/components";
 
 import { FaFacebookSquare } from "react-icons/fa";
+import { FaSquareXTwitter } from "react-icons/fa6";
+import { SiYoutube } from "react-icons/si";
+import { FaTiktok } from "react-icons/fa";
 
 const Footer = () => {
   const footerRef = useRef();
@@ -28,47 +31,36 @@ const Footer = () => {
           the quick fox jumps over the lazy dog
         </p>
         <div className=" flex items-center gap-4">
-          <FaFacebookSquare className=" text-blue-600 w-11 h-11" />
-          <img
-            src="/inst-logo.png"
-            width={40}
-            height={40}
-            className=" cursor-pointer"
-          />
-          <img
-            src="/x-logo.png"
-            width={36}
-            height={36}
-            className=" cursor-pointer"
-          />
+          <FaFacebookSquare className=" w-7 cursor-pointer h-7" />
+          <FaSquareXTwitter className=" w-7 cursor-pointer h-7" />
+          <SiYoutube className=" w-7 h-7 cursor-pointer" />
+          <FaTiktok className=" w-6 h-6 cursor-pointer" />
         </div>
       </div>
       <div className="flex gap-14 max600:justify-between ">
         <div className=" flex flex-col gap-4">
           <p className="headerText2">Company Info</p>
           <p className="text-sm font-extrabold text-text">
-            the quick fox jumps
+            <a
+              href="https://info@voixify.com"
+              style={{ textDecoration: "none" }}
+            >
+              info@voixify.com
+            </a>
           </p>
-          <p className="text-sm font-extrabold text-text">
-            the quick fox jumps
-          </p>
-          <p className="text-sm font-extrabold text-text">
-            the quick fox jumps
-          </p>
-          <p className="text-sm font-extrabold text-text">
-            the quick fox jumps
-          </p>
+          <p className="text-sm font-extrabold text-text">Address</p>
+          <p className="text-sm font-extrabold text-text">Phone number</p>
         </div>
         <div className=" flex flex-col gap-4">
-          <p className="headerText2">Features</p>
-          <p className="text-sm font-extrabold text-text">
-            the quick fox jumps
+          <p className="headerText2">Useful Links</p>
+          <p className="text-sm font-extrabold text-text cursor-pointer">
+            Book a demo
           </p>
-          <p className="text-sm font-extrabold text-text">
-            the quick fox jumps
+          <p className="text-sm font-extrabold text-text cursor-pointer">
+            Terms and Condition
           </p>
-          <p className="text-sm font-extrabold text-text">
-            the quick fox jumps
+          <p className="text-sm font-extrabold text-text cursor-pointer">
+            Case Studies
           </p>
         </div>
       </div>
