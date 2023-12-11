@@ -47,7 +47,13 @@ const Navbar = () => {
         })}
       </div>
       {/* sign up */}
-      <div className=" max768:hidden center rounded-2xl pl-6 pr-6 p-4 bodyText !text-sm cursor-pointer bg-accent text-bg ">
+      <div
+        className=" max768:hidden center rounded-2xl pl-6 pr-6 p-4 cursor-pointer bg-accent text-bg headerInfosmall "
+        style={{
+          boxShadow:
+            "inset -4px -4px 10px #28e500, inset 4px 4px 10px 1px #28e500",
+        }}
+      >
         Sign up
       </div>
       {/*  */}

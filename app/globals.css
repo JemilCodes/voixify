@@ -81,6 +81,13 @@ body {
   line-height: 30px;
   letter-spacing: 0.1px;
 }
+.headerInfosmall {
+  font-family: gorditaBold;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 30px;
+  letter-spacing: 0.1px;
+}
 .headerInfo2 {
   font-family: gorditaBold;
   font-size: 18px;
