@@ -47,7 +47,7 @@ const Pricing = () => {
           Choose your choice of currency
         </p>
 
-        <div className=" p-2 pl-4 pr-4 mb-20 rounded-2xl flex items-center gap-7 justify-between bg-const shadow-inner">
+        <div className=" p-2 pl-4 pr-4 mb-10 rounded-2xl flex items-center gap-7 justify-between bg-const shadow-inner">
           <p className="headerText text-text ">
             <CurrIcon
               style={{
@@ -62,7 +62,7 @@ const Pricing = () => {
           />
         </div>
         {toggleCurr && (
-          <div className=" z-50 absolute top-[135px] p-2 pl-4 pr-4 mb-20 rounded-2xl flex items-center gap-7 justify-between bg-const shadow-inner">
+          <div className=" z-50 absolute top-[135px] p-2 pl-4 pr-4  rounded-2xl flex items-center gap-7 justify-between bg-const shadow-inner">
             <FaDollarSign
               onClick={() => handleCurr("dollar")}
               className="  headerText text-text hover:text-white cursor-pointer "
@@ -78,7 +78,7 @@ const Pricing = () => {
           </div>
         )}
 
-        <div className=" p-2 mb-10 rounded-2xl flex items-center gap-7 justify-between bg-const shadow-inner">
+        <div className=" p-2 mb-10 rounded-2xl flex items-center gap-4 justify-between bg-const shadow-inner">
           <div className=" rounded-xl bg-bg p-2 text-sm">Monthly</div>
           <div className=" text-sm">Yearly</div>
         </div>
