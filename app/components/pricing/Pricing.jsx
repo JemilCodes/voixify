@@ -18,6 +18,7 @@ const Pricing = () => {
   const { setPricingRef } = componentsStore();
 
   const [toggleCurr, setToggleCurr] = useState(false);
+  const [duration, setDuration] = useState("monthly");
   const [curr, setCurr] = useState("dollar");
 
   const CurrIcon =
@@ -79,8 +80,22 @@ const Pricing = () => {
         )}
 
         <div className=" p-2 mb-10 rounded-2xl flex items-center gap-4 justify-between bg-const shadow-inner">
-          <div className=" rounded-xl bg-bg p-2 text-sm">Monthly</div>
-          <div className=" text-sm">Yearly</div>
+          <div
+            className={` rounded-xl  p-2 text-sm cursor-pointer ${
+              duration === "monthly" ? "bg-bg" : ""
+            }`}
+            onClick={() => setDuration("monthly")}
+          >
+            Monthly
+          </div>
+          <div
+            className={` rounded-xl  p-2 text-sm cursor-pointer ${
+              duration === "yearly" ? "bg-bg" : ""
+            }`}
+            onClick={() => setDuration("yearly")}
+          >
+            Yearly
+          </div>
         </div>
 
         <div className=" max600:w-[90%] grid grid-cols-3 gap-7 max1200:grid-cols-2 max600:grid-cols-1">
@@ -108,7 +123,7 @@ const Pricing = () => {
                     />
                   </div>
                   <p>/</p>
-                  <p className=" text-text font-bold text-sm">Month</p>
+                  <p className=" text-text font-bold text-sm ">{duration}</p>
                 </div>
                 <p className=" text-center text-text text-base">
                   paragraph pricing-description
@@ -129,10 +144,12 @@ const Pricing = () => {
                   style={{
                     fontFamily: "gorditaBold",
                     fontSize: "12px",
-                    background: "#31A0FE",
+                    // background: "#31A0FE",
                     cursor: "pointer",
+                    boxShadow:
+                      "inset -4px -4px 10px #28e500, inset 4px 4px 10px 1px #28e500",
                   }}
-                  className=" rounded-xl text-bg h-10 flex items-center justify-center w-full"
+                  className=" rounded-xl bg-accent text-bg h-10 flex items-center justify-center w-full"
                 >
                   Continue to Membership
                 </div>
