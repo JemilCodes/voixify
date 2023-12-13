@@ -20,7 +20,7 @@ const Navbar = () => {
           { title: "Home", action: (e) => handleNav(e, homeRef) },
           { title: "Features", action: (e) => handleNav(e, featuresRef) },
           { title: "Pricing", action: (e) => handleNav(e, pricingRef) },
-          { title: "Footer", action: (e) => handleNav(e, footerRef) },
+          // { title: "Footer", action: (e) => handleNav(e, footerRef) },
           { title: "Blog" },
         ].map(({ title, action }, i) => {
           return (
@@ -36,7 +36,7 @@ const Navbar = () => {
               ) : (
                 <Link
                   key={i}
-                  href={"/#"}
+                  href={"https://app.voixify.com/blog"}
                   className=" h-10 pl-2 pr-2 hover:border-b-2 hover:text-accent border-accent center cursor-pointer headerInfo text-text"
                 >
                   {title}
@@ -48,7 +48,7 @@ const Navbar = () => {
       </div>
       {/* sign up */}
       <div
-        className=" max768:hidden center rounded-2xl pl-6 pr-6 p-4 cursor-pointer bg-accent text-bg headerInfosmall "
+        className=" max768:hidden center rounded-2xl pl-6 pr-6 p-4 cursor-pointer bg-accent2 text-bg headerInfosmall "
         style={{
           boxShadow:
             "inset -4px -4px 10px #28e500, inset 4px 4px 10px 1px #28e500",

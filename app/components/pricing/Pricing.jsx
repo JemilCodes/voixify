@@ -35,6 +35,34 @@ const Pricing = () => {
 
   useEffect(() => {
     setPricingRef(pricingRef);
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          console.log(position.coords.latitude, position.coords.longitude);
+          const bcdApi = `http://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}`;
+          fetch(bcdApi)
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.countryName === "Nigeria") {
+                setCurr("naira");
+              }
+            });
+        },
+        (err) => {
+          alert(err.message);
+        }
+      );
+    } else {
+      alert("geolocation is not supported by your browser");
+    }
+  }, []);
+
+  const BaseUrl =
+    "http://api.exchangeratesapi.io/v1/latest?access_key=a91a3017f309a7356acf45f37af993d0";
+  useEffect(() => {
+    fetch(BaseUrl)
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   }, []);
 
   return (
@@ -45,10 +73,10 @@ const Pricing = () => {
       >
         <p className=" headerText mb-5 text-accent">Pricing</p>
         <p className="headerInfo w-2/3 text-text mb-2 text-center">
-          Choose your choice of currency
+          Select the currency of your preference.
         </p>
 
-        <div className=" p-2 pl-4 pr-4 mb-10 rounded-2xl flex items-center gap-7 justify-between bg-const shadow-inner">
+        <div className=" p-2 pl-4 pr-4 mb-20 rounded-2xl flex items-center gap-7 justify-between bg-const shadow-inner">
           <p className="headerText text-text ">
             <CurrIcon
               style={{
@@ -79,9 +107,9 @@ const Pricing = () => {
           </div>
         )}
 
-        <div className=" p-2 mb-10 rounded-2xl flex items-center gap-4 justify-between bg-const shadow-inner">
+        <div className=" h-11 p-[1px]  mb-5 rounded-2xl flex items-center gap-4 justify-between bg-const shadow-inner">
           <div
-            className={` rounded-xl  p-2 text-sm cursor-pointer ${
+            className={` headerInfosmall text-text pl-1 pr-1 h-full flex justify-center items-center rounded-2xl text-sm cursor-pointer font-extrabold ${
               duration === "monthly" ? "bg-bg" : ""
             }`}
             onClick={() => setDuration("monthly")}
@@ -89,7 +117,7 @@ const Pricing = () => {
             Monthly
           </div>
           <div
-            className={` rounded-xl  p-2 text-sm cursor-pointer ${
+            className={` headerInfosmall pl-1 pr-1 h-full flex justify-center items-center  rounded-2xl text-text text-sm cursor-pointer font-extrabold ${
               duration === "yearly" ? "bg-bg" : ""
             }`}
             onClick={() => setDuration("yearly")}
@@ -99,7 +127,38 @@ const Pricing = () => {
         </div>
 
         <div className=" max600:w-[90%] grid grid-cols-3 gap-7 max1200:grid-cols-2 max600:grid-cols-1">
-          {[{}, {}, {}].map(({}, i) => {
+          {[
+            {
+              title: "Basic Plan",
+              price: `${duration === "monthly" ? "5,000" : "50,000"}`,
+              info: "This plan provides the basic featues of Voixify",
+              benefits: [
+                { info: "AI-Powered Response Generation" },
+                { info: "Improved Google Rankings" },
+                { info: "Video Testimonials" },
+                { info: "Review Page Customization" },
+              ],
+            },
+            {
+              title: "Standard Plan",
+              price: `${duration === "monthly" ? "10,000" : "75,000"}`,
+              info: "Voixify suggests this plan for cost-effective access to our key features.",
+              benefits: [
+                { info: "All the basic features" },
+                { info: "Higher Review Cap at 2,000 Reviews" },
+              ],
+            },
+            {
+              title: "Premium Plan",
+              price: `${duration === "monthly" ? "15,000" : "150,000"}`,
+              info: "This plan provides unrestricted access to all Voixify features.",
+              benefits: [
+                { info: "All the basic and premium features" },
+                { info: "Unlimited Reviews" },
+                { info: "NFC Integration for Enhanced Customer Interaction" },
+              ],
+            },
+          ].map(({ title, price, benefits, info }, i) => {
             return (
               <div
                 key={i}
@@ -109,12 +168,19 @@ const Pricing = () => {
                     : i === 1
                     ? " max1200:col-span-1 max600:col-auto glowing-element"
                     : "  max1200:col-span-2 flex justify-center max600:col-auto"
-                } rounded-xl w-full h-full  bg-bg p-10 max600:p-5 flex flex-col items-center justify-center max600:gap-4 gap-6 priceShadow`}
+                } relative rounded-xl w-full h-full  bg-bg p-10 max600:p-5 flex flex-col items-center justify-center max600:gap-4 gap-6 priceShadow`}
               >
-                <p className=" headerInfo">Basic Plan</p>
+                <div
+                  className={` p-2 pl-4 pr-4 bg-accent2 justify-center items-center text-white rounded-xl font-extrabold hidden ${
+                    i === 1 && "!flex"
+                  }`}
+                >
+                  Recommended
+                </div>
+                <p className=" headerInfo">{title}</p>
                 <div className=" text-sm text-center flex justify-center items-center gap-2">
                   <div className=" flex items-center headerText text-text ">
-                    <p>20</p>
+                    <p>{price}</p>
                     <CurrIcon
                       style={{
                         width: curr === "naira" ? "32px" : "",
@@ -123,19 +189,19 @@ const Pricing = () => {
                     />
                   </div>
                   <p>/</p>
-                  <p className=" text-text font-bold text-sm ">{duration}</p>
+                  <p className=" text-text font-bold text-sm capitalize ">
+                    {duration}
+                  </p>
                 </div>
-                <p className=" text-center text-text text-base">
-                  paragraph pricing-description
+                <p className=" text-center text-text text-sm font-extrabold">
+                  {info}
                 </p>
                 <div className=" flex flex-col gap-6 max600:gap-4">
-                  {[{}, {}, {}, {}].map(({}, i) => {
+                  {benefits.map(({ info }, i) => {
                     return (
                       <div key={i} className=" flex items-center gap-2">
                         <TiTick className=" text-green-400 " />
-                        <p className="text-sm font-extrabold">
-                          Unlimited product updates
-                        </p>
+                        <p className="text-sm font-extrabold">{info}</p>
                       </div>
                     );
                   })}
@@ -149,7 +215,7 @@ const Pricing = () => {
                     boxShadow:
                       "inset -4px -4px 10px #28e500, inset 4px 4px 10px 1px #28e500",
                   }}
-                  className=" rounded-xl bg-accent text-bg h-10 flex items-center justify-center w-full"
+                  className=" rounded-xl bg-accent2 text-bg h-10 flex items-center justify-center w-full"
                 >
                   Continue to Membership
                 </div>

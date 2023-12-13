@@ -22,10 +22,10 @@ const HomePage = () => {
         <div className="w-1/2 max768:w-full max768:items-center max768:text-center flex flex-col  gap-7">
           <p className="bannerText text-accent">
             Boost your online reputation and testimonials on platforms like
-            Google, Facebook, Bookings.com, Airbnb, and so on.
+            Google, Facebook, Bookings.com, Airbnb and More.
           </p>
           <p className="headerInfo2 text-text w-[357px]">
-            Fill in your mail to get started with voixify
+            Fill in your mail to get started with Voixify
           </p>
           <div className=" bg-const w-[350px] h-12 rounded-2xl shadow-inner">
             <input
@@ -38,7 +38,7 @@ const HomePage = () => {
               boxShadow:
                 "inset -4px -4px 10px #28e500, inset 4px 4px 10px 1px #28e500",
             }}
-            className="w-[200px] h-11 headerInfo text-bg center bg-accent rounded-3xl outline-none border-none"
+            className=" w-[200px] h-11 headerInfo text-bg center bg-accent2 rounded-3xl outline-none border-none"
           >
             Submit
           </button>
