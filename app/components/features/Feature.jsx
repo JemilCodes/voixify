@@ -30,7 +30,7 @@ const Features = () => {
           {[
             {
               title: "Improved Google Rankings",
-              info: "Voixify helps to improve your Google rankings by ensuring only good reviews and ratings not less than 4 gets to your Google My Business profile",
+              info: "Voixify helps to improve your Google rankings by optimizing your reviews and ratings.",
             },
             {
               title: "AI-Powered Response Generation",
