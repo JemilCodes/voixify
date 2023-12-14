@@ -12,6 +12,8 @@ import { TbCurrencyNaira } from "react-icons/tb";
 import { PiCurrencyGbpBold } from "react-icons/pi";
 import { FaDollarSign } from "react-icons/fa6";
 
+import { Convert } from "easy-currencies";
+
 const Pricing = () => {
   const pricingRef = useRef();
 
@@ -20,6 +22,12 @@ const Pricing = () => {
   const [toggleCurr, setToggleCurr] = useState(false);
   const [duration, setDuration] = useState("monthly");
   const [curr, setCurr] = useState("dollar");
+  const [priceMonth, setPriceMonth] = useState(0);
+  const [priceYear, setPriceYear] = useState(0);
+  const [priceMonthS, setPriceMonthS] = useState(0);
+  const [priceYearS, setPriceYearS] = useState(0);
+  const [priceMonthP, setPriceMonthP] = useState(0);
+  const [priceYearP, setPriceYearP] = useState(0);
 
   const CurrIcon =
     curr === "dollar"
@@ -28,42 +36,93 @@ const Pricing = () => {
       ? TbCurrencyNaira
       : PiCurrencyGbpBold;
 
-  const handleCurr = (payload) => {
+  const handleCurr = async (payload) => {
+    if (payload === "naira") {
+      setPriceMonth("5,000");
+      setPriceYear("50,000");
+      setPriceMonthS("10,000");
+      setPriceYearS("75,000");
+      setPriceMonthP("15,000");
+      setPriceYearP("150,000");
+    }
+    if (payload === "dollar") {
+      const pdm = await Convert(5000).from("NGN").to("USD");
+      const pdy = await Convert(50000).from("NGN").to("USD");
+      const pdmS = await Convert(10000).from("NGN").to("USD");
+      const pdyS = await Convert(75000).from("NGN").to("USD");
+      const pdmP = await Convert(15000).from("NGN").to("USD");
+      const pdyP = await Convert(150000).from("NGN").to("USD");
+      setPriceMonth(parseFloat(pdm.toFixed(2)));
+      setPriceYear(parseFloat(pdy.toFixed(2)));
+      setPriceMonthS(parseFloat(pdmS.toFixed(2)));
+      setPriceYearS(parseFloat(pdyS.toFixed(2)));
+      setPriceMonthP(parseFloat(pdmP.toFixed(2)));
+      setPriceYearP(parseFloat(pdyP.toFixed(2)));
+    }
+    if (payload === "gbp") {
+      const pgm = await Convert(5000).from("NGN").to("GBP");
+      const pgy = await Convert(50000).from("NGN").to("GBP");
+      const pgmB = await Convert(10000).from("NGN").to("GBP");
+      const pgyB = await Convert(75000).from("NGN").to("GBP");
+      const pgmP = await Convert(15000).from("NGN").to("GBP");
+      const pgyP = await Convert(150000).from("NGN").to("GBP");
+      setPriceMonth(parseFloat(pgm.toFixed(2)));
+      setPriceYear(parseFloat(pgy.toFixed(2)));
+      setPriceMonthS(parseFloat(pgmB.toFixed(2)));
+      setPriceYearS(parseFloat(pgyB.toFixed(2)));
+      setPriceMonthP(parseFloat(pgmP.toFixed(2)));
+      setPriceYearP(parseFloat(pgyP.toFixed(2)));
+    }
     setCurr(payload);
     setToggleCurr((prev) => !prev);
   };
 
   useEffect(() => {
     setPricingRef(pricingRef);
+    const call = async () => {
+      try {
+        const value1 = await Convert(5000).from("NGN").to("USD");
+        const value2 = await Convert(50000).from("NGN").to("USD");
+        const value3 = await Convert(10000).from("NGN").to("USD");
+        const value4 = await Convert(75000).from("NGN").to("USD");
+        const value5 = await Convert(15000).from("NGN").to("USD");
+        const value6 = await Convert(150000).from("NGN").to("USD");
+        setPriceMonth(value1);
+        setPriceYear(value2);
+        setPriceMonthS(value3);
+        setPriceYearS(value4);
+        setPriceMonthP(value5);
+        setPriceYearP(value6);
+      } catch (error) {
+        // console.error(error);
+      }
+    };
+    call();
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          console.log(position.coords.latitude, position.coords.longitude);
           const bcdApi = `http://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}`;
           fetch(bcdApi)
             .then((res) => res.json())
             .then((data) => {
               if (data.countryName === "Nigeria") {
                 setCurr("naira");
+                setPriceMonth("5,000");
+                setPriceYear("50,000");
+                setPriceMonthS("10,000");
+                setPriceYearS("75,000");
+                setPriceMonthP("15,000");
+                setPriceYearP("150,000");
               }
             });
         },
         (err) => {
-          alert(err.message);
+          // console.log(err.message)
         }
       );
     } else {
       alert("geolocation is not supported by your browser");
     }
-  }, []);
-
-  const BaseUrl =
-    "http://api.exchangeratesapi.io/v1/latest?access_key=a91a3017f309a7356acf45f37af993d0";
-  useEffect(() => {
-    fetch(BaseUrl)
-      .then((res) => res.json())
-      .then((data) => console.log(data))
-      .catch((err) => console.log(err));
   }, []);
 
   return (
@@ -131,7 +190,7 @@ const Pricing = () => {
           {[
             {
               title: "Basic Plan",
-              price: `${duration === "monthly" ? "5,000" : "50,000"}`,
+              price: `${duration === "monthly" ? priceMonth : priceYear}`,
               info: "This plan provides the basic featues of Voixify",
               benefits: [
                 { info: "AI-Powered Response Generation" },
@@ -142,7 +201,7 @@ const Pricing = () => {
             },
             {
               title: "Standard Plan",
-              price: `${duration === "monthly" ? "10,000" : "75,000"}`,
+              price: `${duration === "monthly" ? priceMonthS : priceYearS}`,
               info: "Voixify suggests this plan for cost-effective access to our key features.",
               benefits: [
                 { info: "All the basic features" },
@@ -151,7 +210,7 @@ const Pricing = () => {
             },
             {
               title: "Premium Plan",
-              price: `${duration === "monthly" ? "15,000" : "150,000"}`,
+              price: `${duration === "monthly" ? priceMonthP : priceYearP}`,
               info: "This plan provides unrestricted access to all Voixify features.",
               benefits: [
                 { info: "All the basic and premium features" },

@@ -47,16 +47,17 @@ const Navbar = () => {
         })}
       </div>
       {/* sign up */}
-      <div
-        className=" max768:hidden center rounded-2xl pl-6 pr-6 p-4 cursor-pointer bg-accent2 text-bg headerInfosmall "
+
+      <a
+        href="https://app.voixify.com"
+        className=" center rounded-2xl pl-6 pr-6 p-4 cursor-pointer bg-accent2 text-bg headerInfosmall "
         style={{
           boxShadow:
             "inset -4px -4px 10px #28e500, inset 4px 4px 10px 1px #28e500",
         }}
       >
         Sign up
-      </div>
-      {/*  */}
+      </a>
     </div>
   );
 };
