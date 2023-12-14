@@ -16,7 +16,10 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div ref={homeRef} className=" mb-20  w-full pageHeight  flex flex-col">
+    <div
+      ref={homeRef}
+      className=" pt-2 mb-20  w-full pageHeight  flex flex-col"
+    >
       {/* home section */}
       <div className=" w-full flex-1 flex  max768:flex-col-reverse max768:gap-10 items-center justify-between">
         <div className="w-1/2 max768:w-full max768:items-center max768:text-center flex flex-col  gap-7">
@@ -27,7 +30,7 @@ const HomePage = () => {
           <p className="headerInfo2 text-text w-[357px]">
             Fill in your mail to get started with Voixify
           </p>
-          <div className=" bg-const w-[350px] h-12 rounded-2xl shadow-inner">
+          <div className=" bg-const w-[350px] max350:w-[300px] h-12 rounded-2xl shadow-inner">
             <input
               className=" w-full h-11 bg-transparent bodyInfo text-text placeholder:text-text rounded-2xl outline-none p-3"
               placeholder="Enter your email address"
@@ -43,7 +46,7 @@ const HomePage = () => {
             Submit
           </button>
         </div>
-        <div className=" relative w-[400px] h-[400px] max1040:w-[350px] max1040:h-[350px] flex items-center justify-center">
+        <div className=" relative w-[400px] h-[400px] max1040:w-[350px] max1040:h-[350px] max600:w-[300px] max600:h-[300px] flex items-center justify-center">
           <div
             style={{
               boxShadow:
@@ -52,7 +55,7 @@ const HomePage = () => {
             className=" w-full h-full rounded-full bg-accent"
           ></div>
           <img
-            className="absolute"
+            className="absolute "
             src={"/laptop1.png"}
             width={400}
             height={400}

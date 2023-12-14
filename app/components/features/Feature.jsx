@@ -34,15 +34,15 @@ const Features = () => {
             },
             {
               title: "AI-Powered Response Generation",
-              info: "The AI technology will assist in generating responses to customer reviews. This saves you time and ensures that your responses are timely and relevant.",
+              info: "AI technology assists generating timely, relevant responses to customer reviews.",
             },
             {
               title: "Video Testimonials",
-              info: "Voixify also lets you collect engaging video testimonials from customers. These can be shared on social media to enhance your brand's credibility and visibilit",
+              info: "Voixify collects engaging customer video testimonials to enhance brand credibility.",
             },
             {
               title: "NFC Integration for Enhanced Customer Interaction",
-              info: "The innovative NFC (Near Field Communication) feature allows you to engage with customers using cutting-edge technology",
+              info: "Channels to collect reviews include NFC, SMS, email and QR codes.",
             },
           ].map(({ title, info }, i) => {
             return (

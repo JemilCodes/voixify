@@ -18,6 +18,7 @@ module.exports = {
         max1200: { max: "1200px" },
         max768: { max: "768px" },
         max600: { max: "600px" },
+        max350: { max: "350px" },
       },
     },
   },

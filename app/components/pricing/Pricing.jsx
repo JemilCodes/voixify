@@ -92,7 +92,7 @@ const Pricing = () => {
           />
         </div>
         {toggleCurr && (
-          <div className=" z-50 absolute top-[135px] p-2 pl-4 pr-4  rounded-2xl flex items-center gap-7 justify-between bg-const shadow-inner">
+          <div className=" z-50 absolute top-[135px] max768:top-[140px] max600:top-[170px] p-2 pl-4 pr-4  rounded-2xl flex items-center gap-7 justify-between bg-const shadow-inner">
             <FaDollarSign
               onClick={() => handleCurr("dollar")}
               className="  headerText text-text hover:text-white cursor-pointer "
@@ -111,7 +111,7 @@ const Pricing = () => {
         <div className=" h-11 p-[1px]  mb-5 rounded-2xl flex items-center gap-4 justify-between bg-const shadow-inner">
           <div
             className={` headerInfosmall text-text pl-1 pr-1 h-full flex justify-center items-center rounded-2xl text-sm cursor-pointer font-extrabold ${
-              duration === "monthly" ? "bg-bg" : ""
+              duration === "monthly" ? "bg-bg border-2 border-accent2" : ""
             }`}
             onClick={() => setDuration("monthly")}
           >
@@ -119,7 +119,7 @@ const Pricing = () => {
           </div>
           <div
             className={` headerInfosmall pl-1 pr-1 h-full flex justify-center items-center  rounded-2xl text-text text-sm cursor-pointer font-extrabold ${
-              duration === "yearly" ? "bg-bg" : ""
+              duration === "yearly" ? "bg-bg border-2 border-accent2" : ""
             }`}
             onClick={() => setDuration("yearly")}
           >

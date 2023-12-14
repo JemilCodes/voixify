@@ -27,10 +27,6 @@ const Footer = () => {
       className=" w-full mb-20 max600:mb-10  flex justify-between max600:flex-col max600:gap-10 "
     >
       <div className=" flex flex-col gap-7 ">
-        <p className="headerText2">Get In Touch</p>
-        <p className="text-sm font-extrabold text-text">
-          Feel free to connect with us via our social media handles
-        </p>
         <div className=" flex items-center gap-4">
           {/* <a href="">
             <FaFacebookSquare className=" w-7 cursor-pointer h-7" />
@@ -51,7 +47,7 @@ const Footer = () => {
       </div>
       <div className="flex gap-14 max600:justify-between ">
         <div className=" flex flex-col gap-4">
-          <p className="headerText2">Company Info</p>
+          <p className="headerText2">Get In Touch</p>
           <p className="text-sm font-extrabold text-text">
             <a
               href="https://info@voixify.com"
@@ -60,13 +56,6 @@ const Footer = () => {
               info@voixify.com
             </a>
           </p>
-          <p className="text-sm font-extrabold text-text w-44">
-            The Philippi Centre, Oluwalogbon House, Plot A Obafemi Awolowo Way,
-            Alausa Ikeja, Lagos
-          </p>
-          <a href={"tel:+2347063362899"} className=" w-fit">
-            <p className="text-sm font-extrabold text-text">+2347063362899</p>
-          </a>
         </div>
         <div className=" flex flex-col gap-4">
           <p className="headerText2">Useful Links</p>
@@ -76,7 +65,7 @@ const Footer = () => {
             </p>
           </a>
           <p className="text-sm font-extrabold text-text cursor-pointer">
-            Terms and Condition
+            Terms and Conditions
           </p>
           <p className="text-sm font-extrabold text-text cursor-pointer">
             Case Studies
