@@ -12,7 +12,7 @@ import { TbCurrencyNaira } from "react-icons/tb";
 import { PiCurrencyGbpBold } from "react-icons/pi";
 import { FaDollarSign } from "react-icons/fa6";
 
-import { Convert } from "easy-currencies";
+// import { Convert } from "easy-currencies";
 
 const Pricing = () => {
   const pricingRef = useRef();
@@ -154,18 +154,24 @@ const Pricing = () => {
         </div>
         {toggleCurr && (
           <div className=" z-50 absolute top-[135px] max768:top-[140px] max600:top-[170px] p-2 pl-4 pr-4  rounded-2xl flex items-center gap-7 justify-between bg-const shadow-inner">
-            <FaDollarSign
-              onClick={() => handleCurr("dollar")}
-              className="  headerText text-text hover:text-white cursor-pointer "
-            />
-            <TbCurrencyNaira
-              onClick={() => handleCurr("naira")}
-              className=" !w-8 !h-8 headerText text-text hover:text-white cursor-pointer"
-            />
-            <PiCurrencyGbpBold
-              onClick={() => handleCurr("gbp")}
-              className=" !w-7 !h-7 headerText text-text hover:text-white cursor-pointer"
-            />
+            {curr !== "dollar" && (
+              <FaDollarSign
+                onClick={() => handleCurr("dollar")}
+                className="  headerText text-text hover:text-white cursor-pointer "
+              />
+            )}
+            {curr !== "naira" && (
+              <TbCurrencyNaira
+                onClick={() => handleCurr("naira")}
+                className=" !w-8 !h-8 headerText text-text hover:text-white cursor-pointer"
+              />
+            )}
+            {curr !== "gbp" && (
+              <PiCurrencyGbpBold
+                onClick={() => handleCurr("gbp")}
+                className=" !w-7 !h-7 headerText text-text hover:text-white cursor-pointer"
+              />
+            )}
           </div>
         )}
 
