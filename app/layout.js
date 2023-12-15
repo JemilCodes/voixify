@@ -5,7 +5,7 @@ export const metadata = {
   description:
     "Boost your online reputation and testimonials on platforms like Google, Facebook, Bookings.com, Airbnb and More.",
   keywords:
-    "Online Reputation Management, Testimonial Enhancement, Boost Reviews, Google Reviews, Facebook Testimonials, Bookings.com Reviews, Airbnb Feedback, Reputation Building, Online Testimonial Strategy, Platform-Specific Testimonials, Review Optimization, Testimonial Marketing, Social Proof Enhancement, Trustworthy Online Presence, Positive Customer Feedback",
+    "Online Reputation Management, Testimonial Enhancement, Boost Reviews, Google Reviews, Facebook Testimonials, Bookings.com Reviews, Airbnb Feedback, Reputation Building, Online Testimonial Strategy, Platform-Specific Testimonials, Review Optimization, Testimonial Marketing, Social Proof Enhancement, Trustworthy Online Presence, Positive Customer Feedback, Ratings, Reviews,Five stars",
 };
 
 export default function RootLayout({ children }) {

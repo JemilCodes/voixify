@@ -46,32 +46,32 @@ const Pricing = () => {
       setPriceYearP("150,000");
     }
     if (payload === "dollar") {
-      const pdm = await Convert(5000).from("NGN").to("USD");
-      const pdy = await Convert(50000).from("NGN").to("USD");
-      const pdmS = await Convert(10000).from("NGN").to("USD");
-      const pdyS = await Convert(75000).from("NGN").to("USD");
-      const pdmP = await Convert(15000).from("NGN").to("USD");
-      const pdyP = await Convert(150000).from("NGN").to("USD");
-      setPriceMonth(parseFloat(pdm.toFixed(2)));
-      setPriceYear(parseFloat(pdy.toFixed(2)));
-      setPriceMonthS(parseFloat(pdmS.toFixed(2)));
-      setPriceYearS(parseFloat(pdyS.toFixed(2)));
-      setPriceMonthP(parseFloat(pdmP.toFixed(2)));
-      setPriceYearP(parseFloat(pdyP.toFixed(2)));
+      // const pdm = await Convert(5000).from("NGN").to("USD");
+      // const pdy = await Convert(50000).from("NGN").to("USD");
+      // const pdmS = await Convert(10000).from("NGN").to("USD");
+      // const pdyS = await Convert(75000).from("NGN").to("USD");
+      // const pdmP = await Convert(15000).from("NGN").to("USD");
+      // const pdyP = await Convert(150000).from("NGN").to("USD");
+      setPriceMonth(5);
+      setPriceYear(50);
+      setPriceMonthS(10);
+      setPriceYearS(100);
+      setPriceMonthP(15);
+      setPriceYearP(150);
     }
     if (payload === "gbp") {
-      const pgm = await Convert(5000).from("NGN").to("GBP");
-      const pgy = await Convert(50000).from("NGN").to("GBP");
-      const pgmB = await Convert(10000).from("NGN").to("GBP");
-      const pgyB = await Convert(75000).from("NGN").to("GBP");
-      const pgmP = await Convert(15000).from("NGN").to("GBP");
-      const pgyP = await Convert(150000).from("NGN").to("GBP");
-      setPriceMonth(parseFloat(pgm.toFixed(2)));
-      setPriceYear(parseFloat(pgy.toFixed(2)));
-      setPriceMonthS(parseFloat(pgmB.toFixed(2)));
-      setPriceYearS(parseFloat(pgyB.toFixed(2)));
-      setPriceMonthP(parseFloat(pgmP.toFixed(2)));
-      setPriceYearP(parseFloat(pgyP.toFixed(2)));
+      // const pgm = await Convert(5000).from("NGN").to("GBP");
+      // const pgy = await Convert(50000).from("NGN").to("GBP");
+      // const pgmB = await Convert(10000).from("NGN").to("GBP");
+      // const pgyB = await Convert(75000).from("NGN").to("GBP");
+      // const pgmP = await Convert(15000).from("NGN").to("GBP");
+      // const pgyP = await Convert(150000).from("NGN").to("GBP");
+      setPriceMonth(5);
+      setPriceYear(50);
+      setPriceMonthS(10);
+      setPriceYearS(100);
+      setPriceMonthP(15);
+      setPriceYearP(150);
     }
     setCurr(payload);
     setToggleCurr((prev) => !prev);
@@ -81,18 +81,18 @@ const Pricing = () => {
     setPricingRef(pricingRef);
     const call = async () => {
       try {
-        const value1 = await Convert(5000).from("NGN").to("USD");
-        const value2 = await Convert(50000).from("NGN").to("USD");
-        const value3 = await Convert(10000).from("NGN").to("USD");
-        const value4 = await Convert(75000).from("NGN").to("USD");
-        const value5 = await Convert(15000).from("NGN").to("USD");
-        const value6 = await Convert(150000).from("NGN").to("USD");
-        setPriceMonth(value1);
-        setPriceYear(value2);
-        setPriceMonthS(value3);
-        setPriceYearS(value4);
-        setPriceMonthP(value5);
-        setPriceYearP(value6);
+        // const value1 = await Convert(5000).from("NGN").to("USD");
+        // const value2 = await Convert(50000).from("NGN").to("USD");
+        // const value3 = await Convert(10000).from("NGN").to("USD");
+        // const value4 = await Convert(75000).from("NGN").to("USD");
+        // const value5 = await Convert(15000).from("NGN").to("USD");
+        // const value6 = await Convert(150000).from("NGN").to("USD");
+        setPriceMonth(5);
+        setPriceYear(50);
+        setPriceMonthS(10);
+        setPriceYearS(100);
+        setPriceMonthP(15);
+        setPriceYearP(150);
       } catch (error) {
         // console.error(error);
       }
@@ -117,7 +117,9 @@ const Pricing = () => {
             });
         },
         (err) => {
-          // console.log(err.message)
+          console.log(
+            "By granting location access empowers us to assist you in selecting your preferred currency"
+          );
         }
       );
     } else {
