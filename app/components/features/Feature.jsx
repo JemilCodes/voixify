@@ -41,7 +41,7 @@ const Features = () => {
               info: "Voixify collects engaging customer video testimonials to enhance brand credibility.",
             },
             {
-              title: "NFC Integration for Enhanced Customer Interaction",
+              title: "Flexible Review Collection Option",
               info: "Channels to collect reviews include NFC, SMS, email and QR codes.",
             },
           ].map(({ title, info }, i) => {

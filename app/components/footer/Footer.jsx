@@ -6,7 +6,7 @@ import { useEffect, useRef } from "react";
 
 import { componentsStore } from "../store/components";
 
-import { FaFacebookSquare } from "react-icons/fa";
+// import { FaFacebookSquare } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { SiYoutube } from "react-icons/si";
 import { FaTiktok } from "react-icons/fa";
@@ -27,6 +27,7 @@ const Footer = () => {
       className=" w-full mb-20 max600:mb-10  flex justify-between max600:flex-col max600:gap-10 "
     >
       <div className=" flex flex-col gap-7 ">
+        <p className="headerText2">Connect with us..</p>
         <div className=" flex items-center gap-4">
           {/* <a href="">
             <FaFacebookSquare className=" w-7 cursor-pointer h-7" />
@@ -61,7 +62,7 @@ const Footer = () => {
           <p className="headerText2">Useful Links</p>
           <a href="https://calendar.app.google/UHZQkR9AMiKYPsRt7">
             <p className="text-sm font-extrabold text-text cursor-pointer">
-              Book a demo
+              Book a Demo
             </p>
           </a>
           <p className="text-sm font-extrabold text-text cursor-pointer">

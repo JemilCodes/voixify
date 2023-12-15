@@ -22,11 +22,26 @@ const HomePage = () => {
     >
       {/* home section */}
       <div className=" w-full flex-1 flex  max768:flex-col-reverse max768:gap-10 items-center justify-between">
-        <div className="w-1/2 max768:w-full max768:items-center max768:text-center flex flex-col  gap-7">
+        <div className="w-1/2 max768:w-full max768:items-center max768:text-center flex flex-col  gap-4">
           <p className="bannerText text-accent">
-            Boost your online reputation and testimonials on platforms like
-            Google, Facebook, Bookings.com, Airbnb and More.
+            Boost Your Reputation in 3 Simple Steps
           </p>
+          <div className=" flex flex-col gap-2">
+            <p className="headerInfosmall text-text">
+              Step 1: "Connect" Link all your profiles like Google My Business,
+              Facebook, Booking.com, Airbnb and lots more with one click.
+            </p>
+            <p className="headerInfosmall text-text">
+              Step 2: "Share" your Voixify page via SMS, Email, QR Code and NFC
+              to make leaving 5 stars easy.
+            </p>
+            <p className="headerInfosmall text-text">
+              Step 3: "Relax" Our solution delights customers to earn your
+              business glowing reviews across the web while you watch your
+              ranking and sales surge automatically!
+            </p>
+          </div>
+
           <p className="headerInfo2 text-text w-[357px]">
             Fill in your mail to get started with Voixify
           </p>

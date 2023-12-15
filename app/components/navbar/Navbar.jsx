@@ -29,7 +29,7 @@ const Navbar = () => {
                 <div
                   key={i}
                   onClick={(e) => action(e)}
-                  className=" h-10 pl-2 pr-2 hover:border-b-2 hover:text-accent border-accent center cursor-pointer headerInfo text-text"
+                  className=" h-10 pl-2 pr-2 hover:border-b-2 hover:text-accent2 border-accent2 center cursor-pointer headerInfo text-accent"
                 >
                   {title}
                 </div>
@@ -37,7 +37,7 @@ const Navbar = () => {
                 <Link
                   key={i}
                   href={"https://app.voixify.com/blog"}
-                  className=" h-10 pl-2 pr-2 hover:border-b-2 hover:text-accent border-accent center cursor-pointer headerInfo text-text"
+                  className=" h-10 pl-2 pr-2 hover:border-b-2 hover:text-accent2 border-accent2 center cursor-pointer headerInfo text-accent"
                 >
                   {title}
                 </Link>
