@@ -22,12 +22,12 @@ const Pricing = () => {
   const [toggleCurr, setToggleCurr] = useState(false);
   const [duration, setDuration] = useState("monthly");
   const [curr, setCurr] = useState("dollar");
-  const [priceMonth, setPriceMonth] = useState(0);
-  const [priceYear, setPriceYear] = useState(0);
-  const [priceMonthS, setPriceMonthS] = useState(0);
-  const [priceYearS, setPriceYearS] = useState(0);
-  const [priceMonthP, setPriceMonthP] = useState(0);
-  const [priceYearP, setPriceYearP] = useState(0);
+  const [priceMonth, setPriceMonth] = useState(50);
+  const [priceYear, setPriceYear] = useState(500);
+  const [priceMonthS, setPriceMonthS] = useState(100);
+  const [priceYearS, setPriceYearS] = useState(750);
+  const [priceMonthP, setPriceMonthP] = useState(150);
+  const [priceYearP, setPriceYearP] = useState(1500);
 
   const CurrIcon =
     curr === "dollar"
@@ -94,35 +94,16 @@ const Pricing = () => {
                 setPriceYearS("75,000");
                 setPriceMonthP("15,000");
                 setPriceYearP("150,000");
-              } else {
-                setPriceMonth(50);
-                setPriceYear(500);
-                setPriceMonthS(100);
-                setPriceYearS(750);
-                setPriceMonthP(150);
-                setPriceYearP(1500);
               }
             });
         },
         (err) => {
-          setPriceMonth(50);
-          setPriceYear(500);
-          setPriceMonthS(100);
-          setPriceYearS(750);
-          setPriceMonthP(150);
-          setPriceYearP(1500);
           alert(
             "By granting location access empowers us to assist you in selecting your preferred currency"
           );
         }
       );
     } else {
-      setPriceMonth(50);
-      setPriceYear(500);
-      setPriceMonthS(100);
-      setPriceYearS(750);
-      setPriceMonthP(150);
-      setPriceYearP(1500);
       alert("geolocation is not supported by your browser");
     }
   }, []);
