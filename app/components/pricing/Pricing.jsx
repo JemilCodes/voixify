@@ -52,12 +52,12 @@ const Pricing = () => {
       // const pdyS = await Convert(75000).from("NGN").to("USD");
       // const pdmP = await Convert(15000).from("NGN").to("USD");
       // const pdyP = await Convert(150000).from("NGN").to("USD");
-      setPriceMonth(5);
-      setPriceYear(50);
-      setPriceMonthS(10);
-      setPriceYearS(100);
-      setPriceMonthP(15);
-      setPriceYearP(150);
+      setPriceMonth(50);
+      setPriceYear(500);
+      setPriceMonthS(100);
+      setPriceYearS(750);
+      setPriceMonthP(150);
+      setPriceYearP(1500);
     }
     if (payload === "gbp") {
       // const pgm = await Convert(5000).from("NGN").to("GBP");
@@ -66,12 +66,12 @@ const Pricing = () => {
       // const pgyB = await Convert(75000).from("NGN").to("GBP");
       // const pgmP = await Convert(15000).from("NGN").to("GBP");
       // const pgyP = await Convert(150000).from("NGN").to("GBP");
-      setPriceMonth(5);
-      setPriceYear(50);
-      setPriceMonthS(10);
-      setPriceYearS(100);
-      setPriceMonthP(15);
-      setPriceYearP(150);
+      setPriceMonth(50);
+      setPriceYear(500);
+      setPriceMonthS(100);
+      setPriceYearS(750);
+      setPriceMonthP(150);
+      setPriceYearP(1500);
     }
     setCurr(payload);
     setToggleCurr((prev) => !prev);
@@ -79,25 +79,6 @@ const Pricing = () => {
 
   useEffect(() => {
     setPricingRef(pricingRef);
-    const call = async () => {
-      try {
-        // const value1 = await Convert(5000).from("NGN").to("USD");
-        // const value2 = await Convert(50000).from("NGN").to("USD");
-        // const value3 = await Convert(10000).from("NGN").to("USD");
-        // const value4 = await Convert(75000).from("NGN").to("USD");
-        // const value5 = await Convert(15000).from("NGN").to("USD");
-        // const value6 = await Convert(150000).from("NGN").to("USD");
-        setPriceMonth(5);
-        setPriceYear(50);
-        setPriceMonthS(10);
-        setPriceYearS(100);
-        setPriceMonthP(15);
-        setPriceYearP(150);
-      } catch (error) {
-        // console.error(error);
-      }
-    };
-    call();
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
@@ -113,6 +94,13 @@ const Pricing = () => {
                 setPriceYearS("75,000");
                 setPriceMonthP("15,000");
                 setPriceYearP("150,000");
+              } else {
+                setPriceMonth(50);
+                setPriceYear(500);
+                setPriceMonthS(100);
+                setPriceYearS(750);
+                setPriceMonthP(150);
+                setPriceYearP(1500);
               }
             });
         },
