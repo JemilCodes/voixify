@@ -105,12 +105,24 @@ const Pricing = () => {
             });
         },
         (err) => {
-          console.log(
+          setPriceMonth(50);
+          setPriceYear(500);
+          setPriceMonthS(100);
+          setPriceYearS(750);
+          setPriceMonthP(150);
+          setPriceYearP(1500);
+          alert(
             "By granting location access empowers us to assist you in selecting your preferred currency"
           );
         }
       );
     } else {
+      setPriceMonth(50);
+      setPriceYear(500);
+      setPriceMonthS(100);
+      setPriceYearS(750);
+      setPriceMonthP(150);
+      setPriceYearP(1500);
       alert("geolocation is not supported by your browser");
     }
   }, []);
