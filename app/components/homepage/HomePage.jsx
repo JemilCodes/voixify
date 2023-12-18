@@ -23,7 +23,7 @@ const HomePage = () => {
       {/* home section */}
       <div className=" w-full flex-1 flex  max768:flex-col-reverse max768:gap-10 items-center justify-between">
         <div className="w-1/2 max768:w-full max768:items-center max768:text-center flex flex-col  gap-4">
-          <p className="bannerText text-accent">
+          <p className="bannerText text-accent2">
             Boost Your Reputation in 3 Simple Steps
           </p>
           <div className=" flex flex-col gap-2">
