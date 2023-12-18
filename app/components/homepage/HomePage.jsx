@@ -27,15 +27,15 @@ const HomePage = () => {
             Boost Your Reputation in 3 Simple Steps
           </p>
           <div className=" flex flex-col gap-2">
-            <p className="headerInfosmall text-text">
+            <p className="headerInfosmall text-accent">
               Step 1: "Connect" Link all your profiles like Google My Business,
               Facebook, Booking.com, Airbnb and lots more with one click.
             </p>
-            <p className="headerInfosmall text-text">
+            <p className="headerInfosmall text-accent">
               Step 2: "Share" your Voixify page via SMS, Email, QR Code and NFC
               to make leaving 5 stars easy.
             </p>
-            <p className="headerInfosmall text-text">
+            <p className="headerInfosmall text-accent">
               Step 3: "Relax" Our solution delights customers to earn your
               business glowing reviews across the web while you watch your
               ranking and sales surge automatically!
